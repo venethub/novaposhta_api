@@ -1,0 +1,69 @@
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+Layout/CaseIndentation:
+  IndentOneStep: true
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: same_line
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Metrics/BlockLength:
+  Exclude:
+    - "**/*.gemspec"
+    - "spec/**/*"
+Metrics/LineLength:
+  Max: 100
+Metrics/ParameterLists:
+  Max: 3
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/AutoResourceCleanup:
+  Enabled: true
+Style/CollectionMethods:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/EmptyLiteral:
+  Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Style/ImplicitRuntimeError:
+  Enabled: true
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+Style/MissingElse:
+  Enabled: true
+  EnforcedStyle: case
+Style/NumericLiterals:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%w": "[]"
+    "%W": "[]"
+    "%i": "[]"
+    "%I": "[]"
+    "%r": "()"
+Style/SafeNavigation:
+  Enabled: false
+Style/Send:
+  Enabled: true
+Style/SignalException:
+  EnforcedStyle: semantic
+Style/StringMethods:
+  Enabled: true
+Style/SymbolArray:
+  Enabled: true
+Naming/VariableNumber:
+  EnforcedStyle: snake_case

@@ -57,7 +57,6 @@ module NovaposhtaApi
         client.adapter Faraday.default_adapter
         client.use NovaposhtaApi::Middlewares::ErrorHandling
         client.response :json
-        client.response :logger if Rails.env.development?
       end
     end
 

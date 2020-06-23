@@ -2,11 +2,12 @@
 
 module NovaposhtaApi
   class Client
-    attr_reader :api_url, :api_key
+    API_URL = 'https://api.novaposhta.ua/v2.0/json/'
 
-    def initialize(api_url: nil, api_key:)
-      @api_url = api_url || ENV['NOVAPOSHTA_URL']
-      @api_key = api_key || delivery_member_api_key || ENV['NOVAPOSHTA_KEY']
+    attr_reader :api_key
+
+    def initialize(api_key: nil)
+      @api_key = api_key
     end
 
     def self.resources
@@ -38,13 +39,9 @@ module NovaposhtaApi
 
     def connection
       @connection ||= NovaposhtaApi::HttpClient.new(
-        uri: api_url,
+        uri: API_URL,
         api_key: api_key
       )
-    end
-
-    def delivery_member_api_key
-      @delivery_member_api_key ||= Delivery::Member.select(:api_key).primary&.api_key
     end
   end
 end

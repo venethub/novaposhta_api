@@ -39,3 +39,5 @@ module NovaposhtaApi
     Faraday::Response.register_middleware error_handling: NovaposhtaApi::Middlewares::ErrorHandling
   end
 end
+
+require 'novaposhta_api/rails'

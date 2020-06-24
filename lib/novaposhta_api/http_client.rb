@@ -22,8 +22,7 @@ module NovaposhtaApi
     end
 
     def request(http_method, path, params = {})
-      options = build_options(path).merge!(methodProperties: transform_keys(params))
-
+      options = build_options(path).merge(methodProperties: transform_keys(params))
       response = connection.public_send(http_method, '', options.to_json)
       response.body
     end
@@ -55,7 +54,7 @@ module NovaposhtaApi
     def connection
       @connection ||= Faraday.new(connection_options) do |client|
         client.adapter Faraday.default_adapter
-        client.use NovaposhtaApi::Middlewares::ErrorHandling
+        client.response :error_handling
         client.response :json
       end
     end

@@ -21,7 +21,7 @@ module NovaposhtaApi
     end
 
     def method_missing(name, *args, &block)
-      if self.class.resources.keys.include?(name)
+      if with_resource?(name)
         resources[name] ||= self.class.resources[name].new(connection: connection)
         resources[name]
       else
@@ -30,7 +30,11 @@ module NovaposhtaApi
     end
 
     def respond_to_missing?(method_name, include_private = false)
-      self.class.resources.keys.include?(method_name) || super
+      with_resource?(method_name) || super
+    end
+
+    def with_resource?(resource_name)
+      self.class.resources.keys.include?(resource_name)
     end
 
     def resources

@@ -18,7 +18,7 @@ module NovaposhtaApi
       def from_codes(codes = [])
         return nil if codes.blank?
 
-        codes.map { |code| I18n.t(code, scope: %i[NovaposhtaApi errors]) }
+        codes.map { |code| I18n.t(code, scope: %i[novaposhta errors]) }
       end
     end
   end

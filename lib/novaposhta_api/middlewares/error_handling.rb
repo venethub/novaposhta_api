@@ -12,7 +12,7 @@ module NovaposhtaApi
       end
 
       def error_message(body)
-        (from_codes(body['errorCodes']) || body['errors']).join(SEPARATOR)
+        (from_codes(body['errorCodes']) || body['errors'] || body['message']).join(SEPARATOR)
       end
 
       def from_codes(codes = [])

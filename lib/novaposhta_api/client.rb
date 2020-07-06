@@ -2,8 +2,6 @@
 
 module NovaposhtaApi
   class Client
-    API_URL = 'https://api.novaposhta.ua/v2.0/json/'
-
     attr_reader :api_key
 
     def initialize(api_key: nil)
@@ -15,6 +13,7 @@ module NovaposhtaApi
         cities: Resources::CityResource,
         counterparties: Resources::CounterpartyResource,
         internet_documents: Resources::InternetDocumentResource,
+        tracking_documents: Resources::TrackingDocumentResource,
         settlements: Resources::SettlementResource,
         warehouses: Resources::WarehouseResource
       }
@@ -43,8 +42,8 @@ module NovaposhtaApi
 
     def connection
       @connection ||= NovaposhtaApi::HttpClient.new(
-        uri: API_URL,
-        api_key: api_key
+        uri: NovaposhtaApi.configuration.api_url,
+        api_key: api_key || NovaposhtaApi.configuration.api_key
       )
     end
   end

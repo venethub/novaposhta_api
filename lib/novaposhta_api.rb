@@ -31,6 +31,7 @@ module NovaposhtaApi
     autoload :TrackingDocument, 'novaposhta_api/models/tracking_document'
     autoload :Settlement, 'novaposhta_api/models/settlement'
     autoload :Warehouse, 'novaposhta_api/models/warehouse'
+    autoload :ContactPerson, 'novaposhta_api/models/contact_person'
   end
 
   Error = Class.new(StandardError)

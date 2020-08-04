@@ -52,7 +52,7 @@ module NovaposhtaApi
 
   # @example
   #   NovaposhtaApi.setup do |config|
-  #     config.api_url = "https://api.novaposhta.ua/v2.0/json/"
+  #     config.api_url = 'https://api.novaposhta.ua/v2.0/json/'
   #   end
   #
   def self.setup

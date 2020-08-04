@@ -1,8 +1,6 @@
 # NovaposhtaApi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/novaposhta_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple Novaposhta API 2.0 Ruby client. API documentation by link https://devcenter.novaposhta.ua/docs/services/
 
 ## Installation
 
@@ -20,15 +18,43 @@ Or install it yourself as:
 
     $ gem install novaposhta_api
 
+## Setup
+
+```
+NovaposhtaApi.setup do |config|
+  config.api_url = 'https://api.novaposhta.ua/v2.0/json/'
+  config.api_key = 'KEY'
+end
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Define API client:
+```
+client = NovaposhtaApi::Client.new
+```
 
-## Development
+Cities:
+```
+client.cities.all
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Settlements:
+```
+client.settlements.all
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Warehouses:
+```
+client.warehouses.all
+```
+
+Create internet document:
+```
+client.internet_documents.create(params)
+```
+
+TODO
 
 ## Contributing
 

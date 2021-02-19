@@ -11,6 +11,8 @@ module NovaposhtaApi
 
     def initialize(config)
       @config = config.with_indifferent_access
+
+      yield(connection) if block_given?
     end
 
     def uri
@@ -27,19 +29,15 @@ module NovaposhtaApi
       response.body
     end
 
-    private
-
-    def transform_keys(params)
-      convert_params_to_hash(params).deep_transform_keys { |key| key.to_s.camelcase }
-    end
-
-    def convert_params_to_hash(params)
-      if params.respond_to?(:to_unsafe_h)
-        params.to_unsafe_h
-      else
-        params
+    def connection
+      @connection ||= Faraday.new(connection_options) do |client|
+        client.adapter Faraday.default_adapter
+        client.response :error_handling
+        client.response :json
       end
     end
+
+    private
 
     def build_options(path)
       paths = path.split('/')
@@ -51,19 +49,23 @@ module NovaposhtaApi
       }
     end
 
-    def connection
-      @connection ||= Faraday.new(connection_options) do |client|
-        client.adapter Faraday.default_adapter
-        client.response :error_handling
-        client.response :json
-      end
-    end
-
     def connection_options
       {
         url: uri,
         headers: DEFAULT_HEADERS
       }
+    end
+
+    def transform_keys(params)
+      convert_params_to_hash(params).deep_transform_keys { |key| key.to_s.camelcase }
+    end
+
+    def convert_params_to_hash(params)
+      if params.respond_to?(:to_unsafe_h)
+        params.to_unsafe_h
+      else
+        params
+      end
     end
   end
 end

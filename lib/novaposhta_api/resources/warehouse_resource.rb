@@ -4,9 +4,7 @@ module NovaposhtaApi
   module Resources
     class WarehouseResource < Resource
       def all(params = {})
-        response = Rails.cache.fetch("warehouses/#{params}", CACHE_OPTIONS) do
-          post('Address/getWarehouses', params)
-        end
+        response = post('Address/getWarehouses', params)
 
         NovaposhtaApi::Models::Warehouse.extract_collection(response)
       end

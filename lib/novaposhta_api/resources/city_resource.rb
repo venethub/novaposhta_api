@@ -4,9 +4,7 @@ module NovaposhtaApi
   module Resources
     class CityResource < Resource
       def all(params = {})
-        response = Rails.cache.fetch("cities/#{params}", CACHE_OPTIONS) do
-          post('Address/getCities', params)
-        end
+        response = post('Address/getCities', params)
 
         NovaposhtaApi::Models::City.extract_collection(response)
       end

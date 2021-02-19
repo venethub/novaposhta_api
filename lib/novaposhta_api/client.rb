@@ -6,6 +6,8 @@ module NovaposhtaApi
 
     def initialize(api_key: nil)
       @api_key = api_key
+
+      yield(http.connection) if block_given?
     end
 
     def self.resources
@@ -21,7 +23,7 @@ module NovaposhtaApi
 
     def method_missing(name, *args, &block)
       if with_resource?(name)
-        resources[name] ||= self.class.resources[name].new(connection: connection)
+        resources[name] ||= self.class.resources[name].new(http: http)
         resources[name]
       else
         super
@@ -40,8 +42,8 @@ module NovaposhtaApi
       @resources ||= {}
     end
 
-    def connection
-      @connection ||= NovaposhtaApi::HttpClient.new(
+    def http
+      @http ||= NovaposhtaApi::HttpClient.new(
         uri: NovaposhtaApi.configuration.api_url,
         api_key: api_key || NovaposhtaApi.configuration.api_key
       )

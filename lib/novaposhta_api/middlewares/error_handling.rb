@@ -2,7 +2,7 @@
 
 module NovaposhtaApi
   module Middlewares
-    class ErrorHandling < Faraday::Response::Middleware
+    class ErrorHandling < Faraday::Middleware
       SEPARATOR = ', '
 
       def on_complete(env)

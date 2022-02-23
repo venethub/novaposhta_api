@@ -12,7 +12,6 @@ module NovaposhtaApi
 
   module Middlewares
     autoload :ErrorHandling, 'novaposhta_api/middlewares/error_handling'
-    autoload :ParseJson, 'novaposhta_api/middlewares/parse_json'
   end
 
   module Resources
@@ -60,7 +59,6 @@ module NovaposhtaApi
   end
 
   if Faraday::Middleware.respond_to? :register_middleware
-    Faraday::Response.register_middleware json: NovaposhtaApi::Middlewares::ParseJson
     Faraday::Response.register_middleware error_handling: NovaposhtaApi::Middlewares::ErrorHandling
   end
 end

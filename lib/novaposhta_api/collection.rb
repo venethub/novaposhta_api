@@ -7,7 +7,7 @@ module NovaposhtaApi
 
       @collection = collection.map { |item| klass.new(item) }
 
-      __setobj__(@collection)
+      super(@collection)
     end
   end
 end

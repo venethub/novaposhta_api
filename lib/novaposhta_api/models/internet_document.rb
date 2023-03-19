@@ -30,6 +30,7 @@ module NovaposhtaApi
       property :description, from: :Description
       property :weight, from: :Weight
       property :date_time, from: :DateTime
+      property :options_seat, from: :OptionsSeat
     end
   end
 end

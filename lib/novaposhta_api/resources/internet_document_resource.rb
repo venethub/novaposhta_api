@@ -4,7 +4,7 @@ module NovaposhtaApi
   module Resources
     class InternetDocumentResource < Resource
       def create(params = {})
-        response = post('InternetDocument/save', params)
+        response = request('InternetDocument/save', params)
 
         NovaposhtaApi::Models::InternetDocument.extract_single(response)
       end

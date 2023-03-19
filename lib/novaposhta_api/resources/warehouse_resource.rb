@@ -4,7 +4,7 @@ module NovaposhtaApi
   module Resources
     class WarehouseResource < Resource
       def all(params = {})
-        response = post('Address/getWarehouses', params)
+        response = request('Address/getWarehouses', params)
 
         NovaposhtaApi::Models::Warehouse.extract_collection(response)
       end

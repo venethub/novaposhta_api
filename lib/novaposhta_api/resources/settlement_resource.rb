@@ -4,7 +4,7 @@ module NovaposhtaApi
   module Resources
     class SettlementResource < Resource
       def all(params = {})
-        response = post('Address/searchSettlements', params)
+        response = request('Address/searchSettlements', params)
 
         NovaposhtaApi::Models::Settlement.extract_collection(response[0]['Addresses'])
       end

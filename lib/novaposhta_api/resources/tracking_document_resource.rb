@@ -4,8 +4,9 @@ module NovaposhtaApi
   module Resources
     class TrackingDocumentResource < Resource
       def track(number)
-        response = post(
-          'TrackingDocument/getStatusDocuments', documents: [{document_number: number}]
+        response = request(
+          'TrackingDocument/getStatusDocuments',
+          documents: [{document_number: number}]
         )
 
         NovaposhtaApi::Models::TrackingDocument.extract_single(response)

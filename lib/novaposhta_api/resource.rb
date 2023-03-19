@@ -9,7 +9,7 @@ module NovaposhtaApi
     end
 
     def request(*args)
-      response = http.post(*args)
+      response = http.request(:post, *args)
       response['data']
     end
   end

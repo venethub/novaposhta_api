@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    novaposhta_api (0.1.8)
+    novaposhta_api (0.2.0)
       faraday (~> 2.2)
       hashie (~> 4.1)
 

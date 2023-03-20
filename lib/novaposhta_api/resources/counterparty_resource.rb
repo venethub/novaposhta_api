@@ -10,19 +10,19 @@ module NovaposhtaApi
       end
 
       def senders
-        response = request('Counterparty/getCounterparties', counterparty_property: 'Sender')
+        response = request('Counterparty/getCounterparties', CounterpartyProperty: 'Sender')
 
         NovaposhtaApi::Models::Counterparty.extract_collection(response)
       end
 
       def addresses(ref)
-        response = request('Counterparty/getCounterpartyAddresses', ref: ref)
+        response = request('Counterparty/getCounterpartyAddresses', Ref: ref)
 
         NovaposhtaApi::Models::Address.extract_collection(response)
       end
 
       def contacts(ref)
-        response = request('Counterparty/getCounterpartyContactPersons', ref: ref)
+        response = request('Counterparty/getCounterpartyContactPersons', Ref: ref)
 
         NovaposhtaApi::Models::ContactPerson.extract_collection(response)
       end

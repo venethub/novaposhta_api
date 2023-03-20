@@ -3,13 +3,13 @@
 module NovaposhtaApi
   module Models
     class ContactPerson < Model
-      property :ref, from: :Ref
-      property :first_name, from: :FirstName
-      property :middle_name, from: :MiddleName
-      property :last_name, from: :LastName
-      property :phones, from: :Phones
-      property :description, from: :Description
-      property :email, from: :Email
+      property :Ref
+      property :FirstName
+      property :MiddleName
+      property :LastName
+      property :Phones
+      property :Description
+      property :Email
     end
   end
 end

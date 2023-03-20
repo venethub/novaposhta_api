@@ -6,7 +6,11 @@ module NovaposhtaApi
       def track(number)
         response = request(
           'TrackingDocument/getStatusDocuments',
-          documents: [{document_number: number}]
+          Documents: [
+            {
+              DocumentNumber: number
+            }
+          ]
         )
 
         NovaposhtaApi::Models::TrackingDocument.extract_single(response)

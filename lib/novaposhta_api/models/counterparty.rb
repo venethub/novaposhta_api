@@ -3,17 +3,17 @@
 module NovaposhtaApi
   module Models
     class Counterparty < Model
-      property :ref, from: :Ref
-      property :first_name, from: :FirstName
-      property :middle_name, from: :MiddleName
-      property :last_name, from: :LastName
-      property :phone, from: :Phone
-      property :description, from: :Description
-      property :city, from: :City
-      property :persons, from: :ContactPerson
+      property :Ref
+      property :FirstName
+      property :MiddleName
+      property :LastName
+      property :Phone
+      property :Description
+      property :City
+      property :ContactPerson
 
-      def person
-        @person ||= NovaposhtaApi::Models::Counterparty.extract_single(persons['data']&.first)
+      coerce_key :ContactPerson, ->(value) do
+        NovaposhtaApi::Models::ContactPerson.extract_single(value['data'])
       end
     end
   end

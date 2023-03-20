@@ -3,34 +3,34 @@
 module NovaposhtaApi
   module Models
     class InternetDocument < Model
-      property :ref, from: :Ref
-      property :cost_on_site, from: :CostOnSite
-      property :estimated_delivery_date, from: :EstimatedDeliveryDate
-      property :int_doc_number, from: :IntDocNumber
-      property :type_document, from: :TypeDocument
+      property :Ref
+      property :CostOnSite
+      property :EstimatedDeliveryDate
+      property :IntDocNumber
+      property :TypeDocument
 
-      property :sender, from: :Sender
-      property :city_sender, from: :CitySender
-      property :sender_address, from: :SenderAddress
-      property :contact_sender, from: :ContactSender
-      property :senders_phone, from: :SendersPhone
+      property :Sender
+      property :CitySender
+      property :SenderAddress
+      property :ContactSender
+      property :SendersPhone
 
-      property :recipient, from: :Recipient
-      property :city_recipient, from: :CityRecipient
-      property :recipient_address, from: :RecipientAddress
-      property :contact_recipient, from: :ContactRecipient
-      property :recipients_phone, from: :RecipientsPhone
+      property :Recipient
+      property :CityRecipient
+      property :RecipientAddress
+      property :ContactRecipient
+      property :RecipientsPhone
 
-      property :sevice_type, from: :SeviceType
-      property :cargo_type, from: :CargoType
-      property :payment_method, from: :PaymentMethod
-      property :payer_type, from: :PayerType
-      property :cost, from: :Cost
-      property :seats_amount, from: :SeatsAmount
-      property :description, from: :Description
-      property :weight, from: :Weight
-      property :date_time, from: :DateTime
-      property :options_seat, from: :OptionsSeat
+      property :SeviceType
+      property :CargoType
+      property :PaymentMethod
+      property :PayerType
+      property :Cost
+      property :SeatsAmount
+      property :Description
+      property :Weight
+      property :DateTime
+      property :OptionsSeat
     end
   end
 end

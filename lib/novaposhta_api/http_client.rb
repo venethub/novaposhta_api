@@ -24,7 +24,7 @@ module NovaposhtaApi
     end
 
     def request(http_method, path, params = {})
-      options = build_options(path).merge(methodProperties: transform_keys(params))
+      options = build_options(path).merge(methodProperties: params)
       response = connection.public_send(http_method, '', options.to_json)
       response.body
     end
@@ -54,18 +54,6 @@ module NovaposhtaApi
         url: uri,
         headers: DEFAULT_HEADERS
       }
-    end
-
-    def transform_keys(params)
-      convert_params_to_hash(params).deep_transform_keys { |key| key.to_s.camelcase }
-    end
-
-    def convert_params_to_hash(params)
-      if params.respond_to?(:to_unsafe_h)
-        params.to_unsafe_h
-      else
-        params
-      end
     end
   end
 end

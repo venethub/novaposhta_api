@@ -3,6 +3,7 @@
 module NovaposhtaApi
   class Model < Hashie::Trash
     include Hashie::Extensions::IndifferentAccess
+    include Hashie::Extensions::Coercion
     include Hashie::Extensions::IgnoreUndeclared
 
     class << self

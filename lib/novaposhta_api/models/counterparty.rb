@@ -12,9 +12,9 @@ module NovaposhtaApi
       property :City
       property :ContactPerson
 
-      coerce_key :ContactPerson, ->(value) do
+      coerce_key :ContactPerson, lambda { |value|
         NovaposhtaApi::Models::ContactPerson.extract_single(value['data'])
-      end
+      }
     end
   end
 end

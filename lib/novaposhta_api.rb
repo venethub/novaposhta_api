@@ -31,6 +31,7 @@ module NovaposhtaApi
     autoload :Settlement, 'novaposhta_api/models/settlement'
     autoload :Warehouse, 'novaposhta_api/models/warehouse'
     autoload :ContactPerson, 'novaposhta_api/models/contact_person'
+    autoload :CounterpartyAddress, 'novaposhta_api/models/counterparty_address'
   end
 
   Error = Class.new(StandardError)

@@ -18,7 +18,7 @@ module NovaposhtaApi
       def addresses(ref)
         response = request('Counterparty/getCounterpartyAddresses', Ref: ref)
 
-        NovaposhtaApi::Models::Address.extract_collection(response)
+        NovaposhtaApi::Models::CounterpartyAddress.extract_collection(response)
       end
 
       def contacts(ref)
